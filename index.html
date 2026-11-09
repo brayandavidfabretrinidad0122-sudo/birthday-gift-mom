@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#fff1f5">
+  <title>¡Feliz cumpleaños, mamá! 💗</title>
+  <style>
+    :root {
+      --rose: #e85d85;
+      --deep: #8f3158;
+      --cream: #fffaf5;
+      --ink: #563747;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px 16px;
+      overflow-x: hidden;
+      color: var(--ink);
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at 12% 18%, #ffe0e9 0 8%, transparent 28%),
+        radial-gradient(circle at 88% 82%, #ffe9d9 0 9%, transparent 30%),
+        linear-gradient(135deg, #fff7f8, #fff4e9);
+    }
+    #confetti {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 5;
+    }
+    .card {
+      position: relative;
+      z-index: 1;
+      width: min(100%, 690px);
+      padding: clamp(28px, 6vw, 58px);
+      text-align: center;
+      border: 1px solid rgba(232, 93, 133, .22);
+      border-radius: 28px;
+      background: rgba(255, 255, 255, .82);
+      box-shadow: 0 22px 70px rgba(143, 49, 88, .13);
+      animation: appear .9s ease both;
+    }
+    .heart {
+      display: inline-grid;
+      place-items: center;
+      width: 76px;
+      height: 76px;
+      margin-bottom: 14px;
+      border-radius: 50%;
+      color: white;
+      font-size: 2.25rem;
+      background: linear-gradient(145deg, #f58ca9, #d94e7b);
+      box-shadow: 0 9px 25px rgba(217, 78, 123, .25);
+      animation: heartbeat 1.7s ease-in-out infinite;
+    }
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--rose);
+      font: 700 .78rem/1.4 Arial, sans-serif;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+    }
+    h1 {
+      margin: 0;
+      color: var(--deep);
+      font-size: clamp(2.5rem, 9vw, 4.6rem);
+      line-height: 1.04;
+    }
+    h1 span { display: block; color: var(--rose); }
+    .divider {
+      width: 78px;
+      height: 3px;
+      margin: 25px auto;
+      border-radius: 9px;
+      background: linear-gradient(90deg, #f6b1c4, #e85d85);
+    }
+    .message {
+      max-width: 520px;
+      margin: 0 auto;
+      font-size: clamp(1.05rem, 3.5vw, 1.22rem);
+      line-height: 1.85;
+    }
+    .message p { margin: 0 0 14px; }
+    .highlight {
+      color: var(--deep);
+      font-weight: bold;
+    }
+    .signature {
+      margin-top: 25px;
+      color: var(--rose);
+      font-size: 1.35rem;
+      font-style: italic;
+    }
+    button {
+      margin-top: 28px;
+      padding: 14px 23px;
+      border: 0;
+      border-radius: 999px;
+      color: white;
+      background: linear-gradient(110deg, #e85d85, #bd4777);
+      font: 700 .98rem Arial, sans-serif;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(189, 71, 119, .22);
+      transition: transform .2s, box-shadow .2s;
+    }
+    button:hover { transform: translateY(-3px); box-shadow: 0 12px 25px rgba(189, 71, 119, .3); }
+    button:focus-visible { outline: 3px solid #8f3158; outline-offset: 4px; }
+    .footer {
+      margin: 22px 0 0;
+      color: #a77b8d;
+      font: .78rem Arial, sans-serif;
+    }
+    @keyframes appear {
+      from { opacity: 0; transform: translateY(22px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      12% { transform: scale(1.1); }
+      24% { transform: scale(1); }
+      36% { transform: scale(1.07); }
+    }
+    @media (max-width: 420px) {
+      .card { border-radius: 22px; padding: 30px 21px; }
+      .heart { width: 66px; height: 66px; }
+      .message { line-height: 1.72; }
+      button { width: 100%; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="confetti" aria-hidden="true"></canvas>
+
+  <main class="card">
+    <div class="heart" aria-hidden="true">♡</div>
+    <p class="eyebrow">Un día para celebrar a alguien especial</p>
+    <h1>¡Feliz cumpleaños,<span>mamá!</span></h1>
+    <div class="divider"></div>
+
+    <section class="message">
+      <p>Hoy celebro la bendición de tenerte en mi vida. Gracias por tu amor, tus consejos, tus sacrificios y por estar ahí incluso en los momentos difíciles.</p>
+      <p>Le pido a <span class="highlight">Dios</span> que te regale mucha salud, paz, alegría y muchos años más de vida. Que nunca te falten motivos para sonreír y que cada uno de tus días esté lleno de bendiciones.</p>
+      <p>Tal vez no siempre encuentre las palabras para expresarlo, pero quiero que sepas cuánto te amo y lo agradecido que estoy por todo lo que haces por mí.</p>
+    </section>
+
+    <p class="signature">Con todo mi amor, tu hijo. 💗</p>
+    <button type="button" id="celebrate">🎉 ¡Celebrar otra vez!</button>
+    <p class="footer">Hecho con mucho amor, especialmente para ti.</p>
+  </main>
+
+  <script>
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
+    let pieces = [];
+    let animationId;
+
+    function resizeCanvas() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      canvas.width = Math.floor(window.innerWidth * dpr);
+      canvas.height = Math.floor(window.innerHeight * dpr);
+      canvas.style.width = window.innerWidth + 'px';
+      canvas.style.height = window.innerHeight + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+
+    function celebrate() {
+      const colors = ['#e85d85', '#f6b1c4', '#f6c85f', '#9b8ad6', '#79c9b0', '#ff9f68'];
+      const amount = window.innerWidth < 600 ? 105 : 180;
+      pieces = Array.from({ length: amount }, () => ({
+        x: Math.random() * window.innerWidth,
+        y: -20 - Math.random() * window.innerHeight * .6,
+        size: 4 + Math.random() * 7,
+        speed: 2 + Math.random() * 4,
+        drift: (Math.random() - .5) * 2.2,
+        rotation: Math.random() * Math.PI,
+        spin: (Math.random() - .5) * .12,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        shape: Math.random() > .5 ? 'rect' : 'circle'
+      }));
+      if (animationId) cancelAnimationFrame(animationId);
+      animate();
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+      pieces = pieces.filter(p => p.y < window.innerHeight + 25);
+      for (const p of pieces) {
+        p.x += p.drift;
+        p.y += p.speed;
+        p.rotation += p.spin;
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation);
+        ctx.fillStyle = p.color;
+        if (p.shape === 'rect') ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * .65);
+        else {
+          ctx.beginPath();
+          ctx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+          ctx.fill();
+        }
+        ctx.restore();
+      }
+      if (pieces.length) animationId = requestAnimationFrame(animate);
+      else {
+        ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        animationId = null;
+      }
+    }
+
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    document.getElementById('celebrate').addEventListener('click', celebrate);
+    window.addEventListener('load', celebrate);
+  </script>
+</body>
+</html>
